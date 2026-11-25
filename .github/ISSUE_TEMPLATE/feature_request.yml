@@ -1,0 +1,11 @@
+name: Feature Request
+description: Propose a new MCP tool, ProseMirror node, or hardening check
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement & Threat Model
+      description: Describe the use case and any security boundaries affected.
+    validations:
+      required: true

@@ -1,0 +1,11 @@
+/target/
+*.rs.bk
+*.swp
+.DS_Store
+.env
+.env.*
+!.env.example
+*.sid
+*cookies*
+scratch/
+sbom.cdx.json

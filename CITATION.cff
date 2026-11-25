@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "substack-mcp-rs: Hardened Pure-Rust Substack MCP 2.0 + SSE Server, Client, and Small Editor Model"
+message: "If you cite this software or its hardware/security-hardening architecture, please use this metadata."
+authors:
+  - given-names: "Peter"
+    family-names: "Lodri"
+repository-code: "https://github.com/8b-is/substack-mcp-rs"
+license: Apache-2.0
+version: "0.1.0"
+date-released: "2026-11-25"
+keywords:
+  - model-context-protocol
+  - mcp-2.0
+  - substack
+  - prosemirror
+  - rust
+  - turbo-fieldfare
+  - security

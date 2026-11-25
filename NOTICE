@@ -1,0 +1,9 @@
+substack-mcp-rs
+Copyright 2026 8b-is & Peter Lodri
+
+This product includes design patterns, `.gturbo` manifest/receipt verification contracts,
+and local loopback OpenAI chat server conventions adapted from:
+- drumih/turbo-fieldfare (https://github.com/drumih/turbo-fieldfare, Apache-2.0)
+
+This product uses the official Rust SDK for Model Context Protocol:
+- modelcontextprotocol/rust-sdk (`rmcp`, Apache-2.0)

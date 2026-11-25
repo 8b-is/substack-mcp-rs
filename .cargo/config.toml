@@ -1,0 +1,4 @@
+# Local optimization note: release builds also support RUSTFLAGS="-C target-cpu=native"
+# Never hardcode host-specific target-cpu here so CI cross-builds remain portable.
+[net]
+git-fetch-with-cli = true

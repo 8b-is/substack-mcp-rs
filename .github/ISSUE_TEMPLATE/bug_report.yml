@@ -1,0 +1,29 @@
+name: Bug Report
+description: Report a reproducible bug in substack-mcp-rs (non-security)
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version / Commit SHA
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: transport
+    attributes:
+      label: MCP Transport
+      options:
+        - Streamable HTTP (/mcp)
+        - Legacy SSE (/sse + /message)
+        - stdio
+        - Offline CLI (editor / verify-gturbo / bench)
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal Reproduction Steps
+      description: Never paste live SUBSTACK_SID cookies or MCP_AUTH_TOKEN values.
+    validations:
+      required: true

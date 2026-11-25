@@ -1,0 +1,83 @@
+[package]
+name = "substack-mcp-rs"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "Apache-2.0"
+description = "Ultra-performance, zero-unsafe Rust Substack MCP 2.0 (Streamable HTTP + SSE + stdio) server & client with pure-Rust Small Editor Model and TurboFieldfare loopback inference"
+homepage = "https://github.com/8b-is/substack-mcp-rs"
+repository = "https://github.com/8b-is/substack-mcp-rs"
+keywords = ["mcp", "substack", "prosemirror", "turbo-fieldfare", "sse"]
+categories = ["command-line-utilities", "web-programming::http-server"]
+
+[lib]
+name = "substack_mcp_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "substack-mcp-rs"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "0.8.9", features = ["http1", "http2", "json", "query", "tokio"] }
+clap = { version = "4.6.10", features = ["derive", "env"] }
+futures = "0.3"
+pulldown-cmark = { version = "0.13.6", default-features = false }
+reqwest = { version = "0.13.5", default-features = false, features = ["rustls", "http2", "json", "gzip", "brotli", "stream"] }
+rmcp = { version = "3.11.0", features = [
+  "server",
+  "client",
+  "macros",
+  "schemars",
+  "transport-io",
+  "transport-child-process",
+  "transport-streamable-http-server",
+  "transport-streamable-http-server-session",
+  "transport-streamable-http-client",
+  "transport-streamable-http-client-reqwest",
+  "reqwest",
+] }
+schemars = "1.2.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11"
+subtle = "2.6"
+thiserror = "2"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros", "signal", "net", "io-std", "time", "sync", "process"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tokio-util = { version = "0.7", features = ["rt"] }
+tower = { version = "0.5", features = ["limit", "timeout"] }
+tower-http = { version = "0.6", features = ["limit", "set-header", "trace", "timeout"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+url = "2.5.9"
+uuid = { version = "1", features = ["v4"] }
+zeroize = { version = "1.9.2", features = ["derive"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = "symbols"
+panic = "abort"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+missing_errors_doc = "allow"
+must_use_candidate = "allow"
+doc_markdown = "allow"
+too_many_lines = "allow"
+cast_precision_loss = "allow"
+unused_async = "allow"
+unused_async_trait_impl = "allow"
+needless_pass_by_value = "allow"
